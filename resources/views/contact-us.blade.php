@@ -32,10 +32,27 @@
         <div class="container">
             {{--  <div class="row">  --}}
                 <form method="POST" action="/contact/sendmessage">
+
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    @if(isset($successMessage))
+                        <div class="alert alert-success">
+                            <p>{{ $successMessage }}</p>
+                        </div>
+                    @endif
+
                     @csrf
                     <div class="form-group">
                         <label for="exampleInputEmail1">Name</label>
-                        <input type="text" class="form-control" name="name"  placeholder="Enter Name">
+                        <input type="text" class="form-control" name="name"  placeholder="Enter Name" required>
                     </div>
                     <div class="form-group">
                       <label for="exampleInputEmail1">Email address</label>
@@ -43,7 +60,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Message</label>
-                        <textarea name="message" id="message" class="form form-control" cols="30" rows="10" placeholder="Message"></textarea>
+                        <textarea name="message" id="message" class="form form-control" cols="30" rows="10" placeholder="Message" required></textarea>
                       </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
