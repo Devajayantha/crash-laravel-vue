@@ -13,7 +13,7 @@ class HomeController extends Controller
 
         $pageSelect = Pages::where('id',1)->first();
 
-        return view('home',['pages' =>$page],['pageSelect' => $pageSelect]);
+        return view('website.home',['pages' =>$page],['pageSelect' => $pageSelect]);
     }
 
     public function page($pageId){
@@ -21,7 +21,7 @@ class HomeController extends Controller
 
         $pageSelect = Pages::where('id',$pageId)->first();
 
-        return view('home',['pages' =>$page],['pageSelect' => $pageSelect]); 
+        return view('website.home',['pages' =>$page],['pageSelect' => $pageSelect]); 
     }
 
 }

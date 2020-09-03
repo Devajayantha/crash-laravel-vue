@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,3 +23,13 @@ Route::get('/page/{id}','HomeController@page');
 Route::get('/contact','ContactUsController@index');
 Route::post('/contact/sendmessage','ContactUsController@sendMessage');
 Route::post('/contact/sendmessage/ajax','ContactUsController@sendMessageAjax');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::group(['middleware' => 'auth'], function () {
+     Route::resource('admin/special','SpecialController'); 
+    
+});
