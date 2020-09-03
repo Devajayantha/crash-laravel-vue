@@ -27,6 +27,8 @@ class SpecialController extends Controller
     public function create()
     {
         //
+
+        return view('admin.special.create');
     }
 
     /**
@@ -37,7 +39,18 @@ class SpecialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+
+        // dd($input);
+        $sp = new Special();
+        $sp->name = $input['name'];
+        $sp->description = $input['description'];
+        $sp->was_price = $input['was_price'];
+        $sp->current_price = $input['current_price'];
+        $sp->save();
+
+        return redirect ('/admin/special');
+
     }
 
     /**
