@@ -61,7 +61,7 @@ class SpecialController extends Controller
      */
     public function show($id)
     {
-        //
+    //    
     }
 
     /**
@@ -72,7 +72,9 @@ class SpecialController extends Controller
      */
     public function edit($id)
     {
-        //
+        $sp = Special::where('id',$id)->first();
+
+        return view('admin.special.edit',['special' => $sp]);
     }
 
     /**
@@ -84,7 +86,19 @@ class SpecialController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $input = $request->all();
+
+        // dd($input);
+        $sp = Special::where('id',$id)->first();
+
+
+        $sp->name = $input['name'];
+        $sp->description = $input['description'];
+        $sp->was_price = $input['was_price'];
+        $sp->current_price = $input['current_price'];
+        $sp->save();
+
+        return redirect ('/admin/special');
     }
 
     /**
@@ -95,6 +109,8 @@ class SpecialController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Special::where('id', $id)->delete();
+
+        return redirect('/admin/special');
     }
 }

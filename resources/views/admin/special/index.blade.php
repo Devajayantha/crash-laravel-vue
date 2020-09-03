@@ -32,6 +32,7 @@
                 <th>Description</th>
                 <th>Was</th>
                 <th>Current</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -41,6 +42,12 @@
                 <td>{{$item -> description}}</td>
                 <td>${{$item -> was_price}}</td>
                 <td>${{$item -> current_price}}</td>
+                <td><a href="/admin/special/{{$item->id}}/edit" class="btn btn-primary btn-sm">Edit</a>
+                <form method="POST" action="/admin/special/{{$item->id}}">
+                  @method('delete')
+                  @csrf
+                  <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                </form></td>
               </tr>
               @endforeach
 
