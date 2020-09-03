@@ -23,6 +23,10 @@
                     <textarea type="text" class="form-control" name="description" placeholder="Enter description"></textarea>
                 </div>
                 <div class="form-group">
+                    <label for="exampleInputEmail1" >Brand</label>
+                    <input type="text" class="form-control" name="brand" placeholder="Enter brand">
+                </div>
+                <div class="form-group">
                     <label for="exampleInputEmail1" >Was Price</label>
                     <input type="number" step="0.01" class="form-control" name="was_price" placeholder="Enter Was Price">
                 </div>

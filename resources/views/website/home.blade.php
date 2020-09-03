@@ -32,6 +32,20 @@
         </div>
     </nav>
     <div>
+
+        <div class="row">
+            @foreach ($special as $item)
+            <div class="col-md-5">              
+                <div style="text-align: center;">
+                    <h4>{{ $item -> name}}</h4>
+                    <p>Was : ${{$item -> was_price}}</p>
+                    <p>Current : ${{$item -> current_price}}</p>
+                    <a href="/special/{{$item -> id}}">Click here to view special</a>
+                </div>
+            </div>
+            @endforeach
+        </div>
+
         {{ $pageSelect -> description}}
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -17,11 +17,15 @@
                 @csrf
                 <div class="form-group">
                   <label for="exampleInputEmail1" >Name</label>
-                  <input value="name" type="text" class="form-control" name="name" placeholder="Enter name">
+                  <input value="{{ $special -> name}}" type="text" class="form-control" name="name" placeholder="Enter name">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1" >Description</label>
                     <textarea type="text" class="form-control" name="description" placeholder="Enter description">{{ $special -> description}}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1" >Brand</label>
+                    <input value="{{ $special -> brand }}" type="text" class="form-control" name="brand" placeholder="Enter brand">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1" >Was Price</label>

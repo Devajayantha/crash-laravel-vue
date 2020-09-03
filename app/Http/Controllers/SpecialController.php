@@ -45,6 +45,7 @@ class SpecialController extends Controller
         $sp = new Special();
         $sp->name = $input['name'];
         $sp->description = $input['description'];
+        $sp->brand = $input['brand'];
         $sp->was_price = $input['was_price'];
         $sp->current_price = $input['current_price'];
         $sp->save();
@@ -94,6 +95,7 @@ class SpecialController extends Controller
 
         $sp->name = $input['name'];
         $sp->description = $input['description'];
+        $sp->brand = $input['brand'];
         $sp->was_price = $input['was_price'];
         $sp->current_price = $input['current_price'];
         $sp->save();

@@ -24,6 +24,8 @@ Route::get('/contact','ContactUsController@index');
 Route::post('/contact/sendmessage','ContactUsController@sendMessage');
 Route::post('/contact/sendmessage/ajax','ContactUsController@sendMessageAjax');
 
+Route::get('special/{id}','HomeController@specialEntry');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
