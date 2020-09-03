@@ -22,3 +22,4 @@ Route::get('/page/{id}','HomeController@page');
 
 Route::get('/contact','ContactUsController@index');
 Route::post('/contact/sendmessage','ContactUsController@sendMessage');
+Route::post('/contact/sendmessage/ajax','ContactUsController@sendMessageAjax');

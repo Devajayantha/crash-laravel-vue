@@ -42,4 +42,36 @@ class ContactUsController extends Controller
         // dd($input);
 
     }
+
+    public function sendMessageAjax(Request $request){
+        $pages = Pages::All();
+        $input = $request->all();
+
+
+        $validator = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+        ]);
+
+        // Mail::send('mails.contactmail', ['nameInput' => $input['name'], 'messageInput' => $input['message']], function($m){
+        //     $m->from('no-reply@pixel.com','Pixel Website');
+
+        //     $m->to('gerrit@pixell.com');
+        // });
+
+        Mail::send('mails.contactmail', ['nameInput' => $input['name'], 'messageInput' => $input['message']], function ($message) {
+            $message->from('john@johndoe.com', 'John Doe');
+            $message->to('john@johndoe.com');
+
+        });
+        
+        return[
+            'success' => True,
+            'message' => "thankyou, we will get back to you soon!"
+        ];
+        // dd($input);
+
+
+
+    }
 }
